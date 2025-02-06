@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Invitation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #ffcccc;
+            font-family: Arial, sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+        .centered {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .popup-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .popup-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="yes-landing-page">
+        <h2>Yay! You said YES! 💖</h2>
+        <p>Now I have a special surprise for you!</p>
+        <button class="popup-btn" onclick="showVideoPage()">Click here for the surprise!</button>
+    </div>
+
+    <div id="video-page" class="hidden centered">
+        <h2>Here’s a special video for you!</h2>
+        <iframe id="video" width="560" height="315" 
+                src="https://www.youtube.com/embed/FR_7ox1oqJw" 
+                frameborder="0" allowfullscreen>
+                onended="showNextButton()">
+        </iframe>
+        <button id="next-btn" class="popup-btn hidden" onclick="showSchedulePage()">Click Me</button>
+    </div>
+
+    <div id="schedule-page" class="hidden schedule">
+        <h2>Our Date Schedule</h2>
+        <ul>
+            <li>10:00 AM - Pick up from your house - Your House <br> <img src="your_house_image.jpg" alt="Your House"></li>
+            <li>11:00 AM - Eat at a Korean Place - Koggi/Seoul Garden <br> 
+                <img src="koggi_restaurant.jpg" alt="Koggi Restaurant"> 
+                <img src="seoul_garden.jpg" alt="Seoul Garden">
+            </li>
+            <li>12:00 PM - Walking around the mall</li>
+            <li>3:00 PM - Van Gogh Museum <br>
+                <img src="van_gogh_museum.jpg" alt="Van Gogh Museum">
+            </li>
+            <li>6:00 PM - Eat at the Mexican Taco place <br>
+                <img src="mexican_taco_place.jpg" alt="Mexican Taco Place">
+            </li>
+            <li>8:00 PM - Go home and watch some movies <br>
+                <img src="netflix_and_chill.jpg" alt="Netflix and Chill">
+                <img src="funny_stick_figure.jpg" alt="Funny Stick Figure">
+            </li>
+            <li>12:00 AM - Send Neko home <br>
+                <img src="sad_emoji.jpg" alt="Sad Emoji">
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function showVideoPage() {
+            document.getElementById("yes-landing-page").style.display = "none";
+            document.getElementById("video-page").style.display = "block";
+        }
+
+        function showNextButton() {
+            document.getElementById("next-btn").classList.remove("hidden");
+        }
+
+        function showSchedulePage() {
+            document.getElementById("video-page").style.display = "none";
+            document.getElementById("schedule-page").style.display = "block";
+        }
+
+        document.getElementById("video").addEventListener("ended", showNextButton);
+    </script>
+</body>
+</html>
