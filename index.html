@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be my Valentine?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+    </div>
+</div>
+    <script src="script.js"></script>
+    <div id="yes-page" class="hidden">
+        <h1>Knew you would say yes!</h1>
+        <div class="gif_container">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif" alt="Excited GIF">
+        </div>
+    </div>
+                <button id="next-btn" class="popup-btn hidden" onclick="goToVideoPage()">Click Here</button>
+    <script>
+        setTimeout(() => {
+            document.getElementById('next-btn').classList.remove('hidden');
+        }, 8000);
+        function handleYesClick() {
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('yes-page').style.display = 'block';
+        }
+    </script>
+    <div id="video-page" class="hidden centered">
+        <h2>Here’s a special video for you!</h2>
+        <iframe id="video" width="560" height="315" 
+                src="https://www.youtube.com/embed/FR_7ox1oqJw" 
+                frameborder="0" allowfullscreen>
+                onended="showScheduleButton()">
+        </iframe>
+        <button id="final-btn" class="popup-btn hidden" onclick="goToSchedulePage()">Click Here</button>
+    </div>
+    <script>
+        function goToVideoPage() {
+            document.getElementById("yes-page").style.display = "none";
+            document.getElementById("video-page").style.display = "block";
+        }
+    </script>
+    <div id="schedule-page" class="hidden centered">
+        <h2>Our Date Schedule</h2>
+        <table border="1" style="width: 80%; margin: auto; text-align: center; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Activity</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10:00 AM</td>
+                    <td>Pick up from your house</td>
+                    <td>Your House</td>
+                </tr>
+                <tr>
+                    <td>11:00 AM</td>
+                    <td>Eat at a Korean Place</td>
+                    <td>Koggi / Seoul Garden</td>
+                </tr>
+                <tr>
+                    <td>12:00 PM</td>
+                    <td>Walking around the mall</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>3:00 PM</td>
+                    <td>Van Gogh Museum</td>
+                    <td>Van Gogh Museum</td>
+                </tr>
+                <tr>
+                    <td>6:00 PM</td>
+                    <td>Eat at the Mexican Taco place</td>
+                    <td>Mexican Taco Place</td>
+                </tr>
+                <tr>
+                    <td>8:00 PM</td>
+                    <td>Go home and watch some movies</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>12:00 AM</td>
+                    <td>Send Neko home</td>
+                    <td>Neko's Home</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function goToSchedulePage() {
+            document.getElementById("video-page").style.display = "none";
+            document.getElementById("schedule-page").style.display = "block";
+        }
+        document.getElementById("video").addEventListener("ended", () => {
+            document.getElementById("final-btn").classList.remove("hidden");
+        });
+    </script>
+</body>
+</html>
