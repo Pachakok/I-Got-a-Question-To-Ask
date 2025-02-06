@@ -1,0 +1,52 @@
+
+
+/* General Page Styling */
+body {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9e3e3; /* Soft pink background */
+    padding: 20px;
+    margin: 0;
+}
+
+/* Button Styling */
+button {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
+
+/* Hidden Elements with Smooth Transition */
+
+
+/* Centering Content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Delayed Pop-up Button */
+.popup-btn {
+    display: none;
+    animation: fadeIn 2s ease-in-out;
+}
